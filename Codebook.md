@@ -30,6 +30,7 @@ These are:
 * Subject (`subject`): The ID of the subject. An integer number in the range of 1 to 30.
 
 All the mean and standard deviation measures from the original set are extracted, for a total of 66 additional variables - the measures.
+
 All values in the final data set are averages of the original measures and are numeric in the range of [-1,1].
 
 The names in this data set are kept as close as possible to the original, to allow for better traceability into the original data. 
@@ -45,7 +46,8 @@ The variable names are constructed of the following factors:
 * Aggregation: Mean or standard deviation (*mean*/*std*).
 
 The name of the variable is then generally constructed as (without spaces): *Domain*_*Signal Type* *Sensor* *Jerk* *Magnitue* _ *Aggregation* _ *Axis*
-Note that not all combinations are available (in the original data). For example, magnitude is not provided per axis, but rather as a calculated euclidean norm
+
+Note that not all combinations are available (in the original data). For example, magnitude is not provided per axis, but rather as a calculated euclidean norm.
 
 
 This construction results in the following variable names:
