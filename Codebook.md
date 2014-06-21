@@ -37,9 +37,9 @@ The variable names are constructed of the following factors:
 
 This results in the following variable names:
 
-Variable Name 				      |Domain (`time`/`freq`)	| Sensor (`Acc`/`Gyro`) | Body/Gravity | Axis (`X`, `Y` or `Z`) | Jerk (`Jerk` or nothing) | Magnitude (`Mag` or nothing) | Mean/Standard Deviation (`mean`/`std`)
-:----------------------------|:-------:|:-------------------:|:--------------:|:------:|:------------:|:-------------------------:
-time_BodyAcc_mean_X          |time   | Acc               | Body         | X    |           |  | mean
+Variable Name 				 |Domain (`time`/`freq`)| Sensor (`Acc`/`Gyro`)| Body/Gravity | Axis (`X`, `Y` or `Z`) | Jerk (`Jerk` or nothing) | Magnitude (`Mag` or nothing) | Mean/Standard Deviation (`mean`/`std`)
+:----------------------------|:--------------------:|:--------------------:|:------------:|:----------------------:|:------------------------:|:----------------------------:|:--------------------------------------
+time_BodyAcc_mean_X          |time     				| Acc                 | Body           | X      |              |  | mean
 time_BodyAcc_mean_Y          |time   | Acc               | Body         | Y    |           |  | mean
 time_BodyAcc_mean_Z          |time   | Acc               | Body         | Z    |           |  | mean
 time_GravityAcc_mean_X		 |time   | Acc               | Gravity         | X    |           | | mean
