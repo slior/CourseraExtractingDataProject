@@ -22,7 +22,7 @@ The first row of the file is the header row, providing the relevant column names
 # Variables
 
 The following is a description of the data set resulting from the script, averaging the standard deviation and mean measures for each subject and activity pair.
-The original data consists of 30 different subjects, with 6 different activities.
+The original data consists of 30 different subjects, with 6 different activities. With all the various measures, as described in the link above.
 
 The first two variables identify the observation.
 These are:
@@ -30,7 +30,10 @@ These are:
 * Subject (`subject`): The ID of the subject. An integer number in the range of 1 to 30.
 
 All the mean and standard deviation measures from the original set are extracted, for a total of 66 additional variables - the measures.
-All values are numeric in the range of [-1,1].
+All values in the final data set are averages of the original measures and are numeric in the range of [-1,1].
+
+The names in this data set are kept as close as possible to the original, to allow for better traceability into the original data. 
+The analysis script simply makes some adjustments to the name to allow for better readability. This is described in more detail in the [script description](https://github.com/slior/CourseraExtractingDataProject/blob/master/README.md).
 
 The variable names are constructed of the following factors:
 * Domain: The domain of the recorded signal - either time or frequency.
@@ -42,8 +45,10 @@ The variable names are constructed of the following factors:
 * Aggregation: Mean or standard deviation (*mean*/*std*).
 
 The name of the variable is then generally constructed as (without spaces): *Domain*_*Signal Type* *Sensor* *Jerk* *Magnitue* _ *Aggregation* _ *Axis*
+Note that not all combinations are available (in the original data). For example, magnitude is not provided per axis, but rather as a calculated euclidean norm
 
-This results in the following variable names:
+
+This construction results in the following variable names:
 
 Variable Name 				 |Domain (`time`/`freq`)| Sensor (`Acc`/`Gyro`)| Body/Gravity | Axis (`X`, `Y` or `Z`) | Jerk (`Jerk` or nothing) | Magnitude (`Mag` or nothing) | Mean/Standard Deviation (`mean`/`std`)
 :----------------------------|:--------------------:|:--------------------:|:------------:|:----------------------:|:------------------------:|:----------------------------:|:--------------------------------------
