@@ -15,6 +15,13 @@ The result of this script is written to a file which can then be used for furthe
 
 The resulting dataset is described in the codebook.md file, also in this repo.
 
+# Repository Contents
+The repository contains 3 files:
+
+* `run_analysis.r': An R script file containing the script that runs the analysis.
+* `README.md` (this file): Describing the repository and the analysis done in detail.
+* `Codebook.md`: A file describing the resulting data set - the result of the script described here.
+
 # Analysis Script
 
 The analysis is given in the [run_analysis.R](https://github.com/slior/CourseraExtractingDataProject/blob/master/run_analysis.r) file.
