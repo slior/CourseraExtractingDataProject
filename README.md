@@ -39,7 +39,8 @@ I have deliberatly left this helper variable there, with its references in the c
 ## Analysis Performed
 The script performs the analysis as requested in the course project (and understood by me).
 
-The analysis is performed in 5 different steps (also documented in the script):
+The analysis is performed in 5 different steps (also documented in the script)
+
 ### Step 1: Combining the training and test sets.
 In this step, the original training and test measurments are read (the data set was originally intended for machine learning purposes which usually provide a training set for building a classifier and a separate testing set for testing it).
 Both sets have the same structure and variable names. The test set is simply smaller.
