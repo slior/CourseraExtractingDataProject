@@ -32,30 +32,31 @@ The variable names are constructed of the following factors:
 3. Body or Gravity Acceleration signal - for accelerator signals, the signal is further divided into the body acceleration and gravity acceleration signals.
 4. Axis: Either X, Y or Z axes.
 5. Jerk: A measure that is a derivation of the body linear acceleration and angular velocity in time. If true, then 'Jerk' will be part of the name. Otherwise no indication is given in the name.
+6. Magnitude of the signals, using the Euclidean norm. If true, 'Mag' will be part of the name. Otherwise no indication is given in the name
 6. Mean or standard deviation (*mean*/*std*).
 
 This results in the following variable names:
 
-Variable Name 				      |Domain (`time`/`freq`)	| Sensor (`Acc`/`Gyro`) | Body/Gravity | Axis (`X`, `Y` or `Z`) | Jerk (`Jerk` or nothing) | Mean/Standard Deviation (`mean`/`std`)
+Variable Name 				      |Domain (`time`/`freq`)	| Sensor (`Acc`/`Gyro`) | Body/Gravity | Axis (`X`, `Y` or `Z`) | Jerk (`Jerk` or nothing) | Magnitude (`Mag` or nothing) | Mean/Standard Deviation (`mean`/`std`)
 :----------------------------|:-------:|:-------------------:|:--------------:|:------:|:------------:|:-------------------------:
-time_BodyAcc_mean_X          |time   | Acc               | Body         | X    | N          | mean
-time_BodyAcc_mean_Y          |time   | Acc               | Body         | Y    | N          | mean
-time_BodyAcc_mean_Z
-time_GravityAcc_mean_X
-time_GravityAcc_mean_Y
-time_GravityAcc_mean_Z
-time_BodyAccJerk_mean_X
-time_BodyAccJerk_mean_Y
-time_BodyAccJerk_mean_Z
-time_BodyGyro_mean_X
-time_BodyGyro_mean_Y
-time_BodyGyro_mean_Z
-time_BodyGyroJerk_mean_X
-time_BodyGyroJerk_mean_Y
-time_BodyGyroJerk_mean_Z
-time_BodyAccMag_mean
-time_GravityAccMag_mean
-time_BodyAccJerkMag_mean
+time_BodyAcc_mean_X          |time   | Acc               | Body         | X    |           |  | mean
+time_BodyAcc_mean_Y          |time   | Acc               | Body         | Y    |           |  | mean
+time_BodyAcc_mean_Z          |time   | Acc               | Body         | Z    |           |  | mean
+time_GravityAcc_mean_X		 |time   | Acc               | Gravity         | X    |           | | mean
+time_GravityAcc_mean_Y       |time   | Acc               | Gravity         | Y    |           | | mean
+time_GravityAcc_mean_Z       |time   | Acc               | Gravity         | Z    |           | | mean
+time_BodyAccJerk_mean_X		 |time   | Acc               | Body         | X    | Jerk          | | mean
+time_BodyAccJerk_mean_Y      |time   | Acc               | Body         | Y    | Jerk          | | mean
+time_BodyAccJerk_mean_Z      |time   | Acc               | Body         | Z    | Jerk          | | mean
+time_BodyGyro_mean_X		 |time   | Gyro               | Body         | X    |           | | mean
+time_BodyGyro_mean_Y         |time   | Gyro               | Body         | Y    |           | | mean
+time_BodyGyro_mean_Z         |time   | Gyro               | Body         | Z    |           | | mean
+time_BodyGyroJerk_mean_X	 |time   | Gyro               | Body         | X    | Jerk      | | mean
+time_BodyGyroJerk_mean_Y     |time   | Gyro               | Body         | Y    | Jerk      | | mean
+time_BodyGyroJerk_mean_Z     |time   | Gyro               | Body         | Z    | Jerk      | | mean
+time_BodyAccMag_mean		 |time   | Acc               | Body         |    | Jerk      |  Mag | mean
+time_GravityAccMag_mean      |time   | Acc               | Gravity         |    | Jerk      | Mag | mean
+time_BodyAccJerkMag_mean     |time   | Acc               | Body         |    | Jerk      | Mag | mean
 time_BodyGyroMag_mean
 time_BodyGyroJerkMag_mean
 freq_BodyAcc_mean_X
