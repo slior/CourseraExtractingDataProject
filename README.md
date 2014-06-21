@@ -37,12 +37,14 @@ The analysis is performed in 5 different steps (also documented in the script):
 In this step, the original training and test measurments are read (the data set was originally intended for machine learning purposes which usually provide a training set for building a classifier and a separate testing set for testing it).
 Both sets have the same structure and variable names. The test set is simply smaller.
 
-Both sets are read for their respective files (`train/X_train.txt` and `test/X_test.txt').
+Both sets are read for their respective files (`train/X_train.txt` and `test/X_test.txt`).
 The original text files are simply space delimited file, with an observation no each row.
 To these we add the respective subject information, which is given in separate file (`train/subject_train.txt` and `test/subject_test.txt`).
 The subject informatio is read separately and added using the column bind (`cbind`) function.
 
 After adding the subject information, the two sets are simply appended together (`rbind`).
+
+The result of this step is stored in the **`all`** variable - a data frame containing all the variable + the corresponding subject id (a number in the range of 1 to 30).
 
 ### Step 2: Extracting the Mean and Standard Deviation Measures
 In this step, we extract only the interesting data for our purposes (defined by the course project - the actual analysis to be performed is unknown).
@@ -54,3 +56,14 @@ We simply read the file which has the feature (=variable) names and index per na
 We find the indices for the variable names that contain either the string `mean()` or `std()` in their name.
 These indices are then used to subset the data from the original data set, read in the previous step.
 Note that we need to account for the additional "subject" column that was added in the previous step, so the indices are shifted right (+1) when subsetting the data.
+
+The result of this step is stored in the **`interesting_data`** variable: the subject id with the mean and standard deviation (std) variables.
+
+### Step 3: Adding the Activity Information
+The activity information is recorded separately in the original data set (added manually in the original experiments).
+We are required to add it to the data set, with the useful activity names - "STANDING", "WALKING", etc.
+
+The activity labels - numbers in the range 1 to 6 - are stored in a separate files, for the training and test sets (`train/y_train.txt` and `test/y_test.txt`). Each row has one number, corresponding to an activity of the matching measurements in the original data file (*X_train.txt* or *X_test.txt*).
+The activity labels are read into data frame and then matched with an activity dictionary (**`activity_dict`**).
+This join operation is done using the `merge` function over the `label` variable (the activitiy label).
+After we have this information, we discard the `label` variable and left with the more understandable activity name variable.
