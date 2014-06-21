@@ -67,3 +67,39 @@ The activity labels - numbers in the range 1 to 6 - are stored in a separate fil
 The activity labels are read into data frame and then matched with an activity dictionary (**`activity_dict`**).
 This join operation is done using the `merge` function over the `label` variable (the activitiy label).
 After we have this information, we discard the `label` variable and left with the more understandable activity name variable.
+
+It's important to note that the merge function doesn't guarantee the original order, so after this step, the order of the rows doesn't match the original order.
+This is ok, since we're not relying on this order to match any more data, as we have until this step.
+The order of columns is preserved though.
+
+The result of this step is stored in the **`interesting_data_w_activities`** variable.
+
+### Step 4:  Label the Data with Descriptive Names
+In this step we simply take the variable names, as given in the original `features` vectors we read.
+We read the relevant names (using the same indices as in step 2) into a character vector.
+
+The "fixing" of the names includes:
+* Replacing the 't' and 'f' prefixes with more description prefixes: 't' -> 'time', 'f' -> 'freq'
+* Removing the redundant parenthesis.
+* Replacing any hypens with underscores
+* Replacing '*BodyBody*' with '*Body*', since this seems more like a typo, and doesn't contribute to the information.
+
+The resulting names are pretty close to the original one. This is intended for easier traceability into the original data set (one can easily do a textual search where needed).
+The names are, however, more easily read - words are separated by underscores, and no redundant text or symbols.
+
+The subject variable is named *subject*, and the activity name is named *activity_name*.
+
+The result of step is also in the **`interesting_data_w_activities`** variable - we're simply changing the data frame names.
+Note that this step ends with one tidy data set, but one which isn't submitted into the project evaluation.
+
+### Step 5: Averaging all Variables by Subject and Activity
+This step involves creating a *separate* data set, which takes the result of the previous four steps and reshapes them.
+We are required to provide a data set which averages all variables per activity and subject pair.
+Since we have 30 subjects and 6 activities, this results in 180 observations in total. Where each variable for an observation is the average (mean) of the relevant variable in the previous step result (`interesting_data_w_activities`).
+
+The result of step #4 is taken and melted (`melt` function), using the `activity_name` and `subject` variables as ID variables.
+We then use the `dcast` function to aggregate by the activity name and subject variable on the 'variable' variable (the result of `melt`). We given the `mean` function as the aggregate function to use.
+
+The result of this step - **`result`** is written to a text file, using `write.table`.
+The file is named **`analysis_results`**.
+And this concludes the analysis script.
